@@ -1,0 +1,146 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background:#0F1825;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1180px;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.container:after {
+    content: '';
+    display: block;
+    background: radial-gradient(circle, rgb(25 40 62) 0%, rgb(15 24 37) 60%, rgb(15 24 37) 100%);
+    z-index: -1;
+    position: absolute;
+    border-radius: 50%;
+    width: 374px;
+    height: 374px;
+    right: 350px;
+    top: 250px;
+    background: #2D5081;
+    filter: blur(225px);
+}
+
+.left-block {
+    flex: 1 0 580px;
+    font-size: 18px;
+    line-height: 29px;
+    font-weight: 400;
+    color: #fff;
+    position: relative;
+    z-index: 200;
+}
+.scene
+{
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background: transparent;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.scene i
+{
+    position: absolute;
+    top: 0px;
+    background: rgba(255,255,255,1);
+    animation: animateStars linear infinite;
+    border-radius: 50%;
+    /*box-shadow: white;*/
+    /*filter: blur(0.7px);*/
+}
+
+
+@keyframes animateStars
+{
+    0%
+    {
+        transform: translateY(0);
+        opacity:0;
+    }
+    20% {
+        opacity:1;
+    }
+    100%
+    {
+        transform: translateY(500px);
+        opacity: 0;
+    }
+}
+.scene .rocket
+{
+    position: relative;
+    animation: animate 5s ease-in-out infinite;
+}
+
+.rocket {
+    z-index:100;
+}
+@keyframes animate
+{
+    0%, 100%
+    {
+        transform: translateY(-25px);
+    }
+    25% {
+        transform: translateY(0px) translateX(25px);
+    }
+    50%
+    {
+        transform: translateX(-15px) translateY(40px);
+
+    }
+    75% {
+        transform: translateX(-25px) translateY(0px);
+    }
+}
+
+@keyframes flicker {
+    0% {
+
+        transform: scale(1);
+    }
+    50% {
+
+        transform: scale(1) translateY(-5px);
+    }
+    100% {
+
+        transform: scale(1);
+    }
+}
+
+@keyframes thrust {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1) translateY(-2px);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#flame_additional {
+    animation: flicker 0.1s infinite alternate;
+}
+
+#flame_general {
+    animation: thrust 0.1s infinite alternate;
+}
